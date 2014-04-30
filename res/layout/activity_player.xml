@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="clip_vertical|right"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="TextView" />
+
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="263dp"
+        android:layout_weight="0.44"
+        android:listSelector="#ff2424" >
+    </ListView>
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:gravity="left|right" >
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/shuffle" />
+
+        <ImageButton
+            android:id="@+id/play"
+            android:layout_width="59dp"
+            android:layout_height="match_parent"
+            android:layout_alignBaseline="@+id/imageButton2"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/imageButton1"
+            android:layout_toRightOf="@+id/imageButton2"
+            android:layout_weight="0.03"
+            android:src="@drawable/stop" 
+            android:onClick="playSong"/>
+
+        <ImageButton
+            android:id="@+id/imageButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/skip" />
+    </RelativeLayout>
+
+</LinearLayout>
