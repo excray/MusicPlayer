@@ -1,5 +1,6 @@
 package com.example.nofrills;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -31,16 +32,16 @@ public class Player extends Activity {
 	   setContentView(R.layout.activity_player);
 
 	    final ListView listview = (ListView) findViewById(R.id.listView1);
-	    String[] values = new String[] { "Android", "iPhone", "WindowsMobile",
-	        "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
-	        "Linux", "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux",
-	        "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux", "OS/2",
-	        "Android", "iPhone", "WindowsMobile" };
-
-	    final ArrayList<String> list = new ArrayList<String>();
-	    for (int i = 0; i < values.length; ++i) {
-	      list.add(values[i]);
-	    }
+//	    String[] values = new String[] { "Android", "iPhone", "WindowsMobile",
+//	        "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
+//	        "Linux", "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux",
+//	        "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux", "OS/2",
+//	        "Android", "iPhone", "WindowsMobile" };
+//
+	    final ArrayList<String> list = getRawFiles();
+//	    for (int i = 0; i < values.length; ++i) {
+//	      list.add(values[i]);
+//	    }
 	    final StableArrayAdapter adapter = new StableArrayAdapter(this,android.R.layout.simple_list_item_1,  list);
 	    //listview.setAdapter(adapter);
 	    listview.setAdapter(adapter);
@@ -79,7 +80,20 @@ public class Player extends Activity {
 //	    });
 	  }
 	  
-	  public void playSong(View v)
+	  private ArrayList<String> getRawFiles() {
+		// TODO Auto-generated method stub
+		
+		  Field[] fields = R.raw.class.getFields();
+		  ArrayList<String> files = new ArrayList<String>();
+		  for(int count = 0; count < fields.length; count++)
+		  {
+			  files.add(fields[count].getName());
+		  }
+		
+		return files;
+	}
+
+	public void playSong(View v)
 	  {
 		  
 	  }
