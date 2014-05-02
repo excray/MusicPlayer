@@ -1,11 +1,14 @@
 package com.example.nofrills;
 
+import java.io.File;
+import java.io.FilenameFilter;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -23,8 +26,9 @@ import android.widget.TextView;
 
 public class Player extends Activity {
 
-	  
-	  private MediaPlayer mp;
+	
+	  private final String MEDIA_PATH="/sdcard";
+	  private MediaPlayer mp = null;
 
 	  @Override
 	  protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +42,11 @@ public class Player extends Activity {
 //	        "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux", "OS/2",
 //	        "Android", "iPhone", "WindowsMobile" };
 //
-	    final ArrayList<String> list = getRawFiles();
-//	    for (int i = 0; i < values.length; ++i) {
-//	      list.add(values[i]);
-//	    }
+	    String[] values = getRawFiles();
+	    final ArrayList<String> list = new ArrayList<String>();
+	    for (int i = 0; i < values.length; ++i) {
+	      list.add(values[i]);
+	    }
 	    final StableArrayAdapter adapter = new StableArrayAdapter(this,android.R.layout.simple_list_item_1,  list);
 	    //listview.setAdapter(adapter);
 	    listview.setAdapter(adapter);
@@ -53,8 +58,12 @@ public class Player extends Activity {
 	    		final String item = (String) parent.getItemAtPosition(position);
 	    		final TextView txtview = (TextView) findViewById(R.id.textView1);
 	    		txtview.setText(item);
-	    		
-	    		mp = MediaPlayer.create(getApplicationContext(), R.raw.kalimba);
+	    		Uri uri = Uri.parse(MEDIA_PATH+"/"+item);
+	    		if(mp!=null)
+	    		{
+	    			mp.reset();
+	    		}
+	    		mp = MediaPlayer.create(getApplicationContext(), uri);
 	    		mp.start();
 	    	}
 	    	
@@ -80,15 +89,35 @@ public class Player extends Activity {
 //	    });
 	  }
 	  
-	  private ArrayList<String> getRawFiles() {
+	  @Override
+	  protected void onDestroy()
+	  {
+		  mp.release();
+	  }
+	  
+	  private String[] getRawFiles() {
 		// TODO Auto-generated method stub
 		
-		  Field[] fields = R.raw.class.getFields();
-		  ArrayList<String> files = new ArrayList<String>();
-		  for(int count = 0; count < fields.length; count++)
-		  {
-			  files.add(fields[count].getName());
-		  }
+//		  Field[] fields = R.raw.class.getFields();
+//		  ArrayList<String> files = new ArrayList<String>();
+//		  for(int count = 0; count < fields.length; count++)
+//		  {
+//			  files.add(fields[count].getName());
+//		  }
+		  
+		  File f = new File(MEDIA_PATH);
+		  String[] files = f.list(new FilenameFilter() {
+			
+			@Override
+			public boolean accept(File dir, String filename) {
+				// TODO Auto-generated method stub
+				if(filename.endsWith(".mp3"))
+				{
+					return true;
+				}
+				return false;
+			}
+		});
 		
 		return files;
 	}
