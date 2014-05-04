@@ -20,6 +20,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -124,7 +126,17 @@ public class Player extends Activity {
 
 	public void playSong(View v)
 	  {
-		  
+		  if(mp.isPlaying())
+		  {
+			  mp.stop();
+			  ImageButton butt = (ImageButton) findViewById(R.id.imageButton2);
+			  butt.setImageResource(R.drawable.stop_button);
+		  }
+		  else
+		  {   mp.start();
+			  ImageButton butt = (ImageButton) findViewById(R.id.imageButton2);
+			  butt.setImageResource(R.drawable.play_button);
+		  }
 	  }
 
 	  public class MySimpleArrayAdapter extends ArrayAdapter<String> {
