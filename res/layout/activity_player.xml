@@ -39,6 +39,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
+            android:onClick="skipSong"
             android:src="@drawable/skip" />
 
         <ImageButton
@@ -48,7 +49,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_weight="0.03"
-            android:onClick="playSong"
+            android:onClick="stopSong"
             android:src="@drawable/stop_button" />
 
     </RelativeLayout>
