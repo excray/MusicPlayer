@@ -8,7 +8,9 @@
         android:id="@+id/textView1"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:gravity="center"
+        android:textSize="30sp" />
 
     <ListView
         android:id="@+id/listView1"
@@ -22,8 +24,8 @@
         android:id="@+id/RelativeLayout1"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
-        android:gravity="left|right" >
-
+        android:gravity="left|right" 
+		android:background="@drawable/footer">
         <ImageButton
             android:id="@+id/imageButton3"
             android:layout_width="wrap_content"
@@ -40,7 +42,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:onClick="skipSong"
-            android:src="@drawable/skip" />
+            android:src="@drawable/skip_btn1" />
 
         <ImageButton
             android:id="@+id/play"
