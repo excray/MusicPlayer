@@ -25,24 +25,12 @@
         android:gravity="left|right" >
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/imageButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:src="@drawable/shuffle" />
-
-        <ImageButton
-            android:id="@+id/play"
-            android:layout_width="59dp"
-            android:layout_height="match_parent"
-            android:layout_alignBaseline="@+id/imageButton2"
-            android:layout_alignParentTop="true"
-            android:layout_toLeftOf="@+id/imageButton1"
-            android:layout_toRightOf="@+id/imageButton2"
-            android:layout_weight="0.03"
-            android:src="@drawable/play_button" 
-            android:onClick="playSong"/>
 
         <ImageButton
             android:id="@+id/imageButton1"
@@ -52,6 +40,17 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:src="@drawable/skip" />
+
+        <ImageButton
+            android:id="@+id/play"
+            android:layout_width="59dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="0.03"
+            android:onClick="playSong"
+            android:src="@drawable/stop_button" />
+
     </RelativeLayout>
 
 </LinearLayout>

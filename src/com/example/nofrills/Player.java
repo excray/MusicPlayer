@@ -128,14 +128,7 @@ public class Player extends Activity {
 	  {
 		  if(mp.isPlaying())
 		  {
-			  mp.stop();
-			  ImageButton butt = (ImageButton) findViewById(R.id.imageButton2);
-			  butt.setImageResource(R.drawable.stop_button);
-		  }
-		  else
-		  {   mp.start();
-			  ImageButton butt = (ImageButton) findViewById(R.id.imageButton2);
-			  butt.setImageResource(R.drawable.play_button);
+			  mp.stop();			  
 		  }
 	  }
 
