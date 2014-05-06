@@ -15,34 +15,29 @@
     <ListView
         android:id="@+id/listView1"
         android:layout_width="match_parent"
-        android:layout_height="263dp"
+        android:layout_height="0dp"
         android:layout_weight="0.44"
-        android:listSelector="#ff2424" >
+        android:listSelector="#ff2424"
+        android:choiceMode="singleChoice" >
     </ListView>
 
     <RelativeLayout
         android:id="@+id/RelativeLayout1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:gravity="left|right" 
-		android:background="@drawable/footer">
-        <ImageButton
-            android:id="@+id/imageButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:src="@drawable/shuffle" />
+        android:background="@drawable/footer"
+        android:gravity="left|right" >
 
         <ImageButton
             android:id="@+id/imageButton1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
+            android:layout_alignTop="@+id/imageButton3"
+            android:layout_marginRight="16dp"
+            android:background="@null"
             android:onClick="skipSong"
-            android:src="@drawable/skip_btn1" />
+            android:src="@drawable/ic_action_next" />
 
         <ImageButton
             android:id="@+id/play"
@@ -53,6 +48,16 @@
             android:layout_weight="0.03"
             android:onClick="stopSong"
             android:src="@drawable/stop_button" />
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="19dp"
+            android:background="@null"
+            android:src="@drawable/ic_action_shuffle" />
 
     </RelativeLayout>
 

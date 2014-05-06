@@ -169,6 +169,7 @@ public class Player extends Activity {
 				}
 			}
 			final String item = (String) list_view.getItemAtPosition(next_pos);
+			//list_view.setSelection(next_pos);
 			playSong(item, next_pos);
 		}
 	}
@@ -184,10 +185,8 @@ public class Player extends Activity {
 		final TextView txtview = (TextView) findViewById(R.id.textView1);
 		txtview.setText(item);
 		Uri uri = Uri.parse(MEDIA_PATH + "/" + item);
-		if (mp.isPlaying()) {
-			mp.reset();
-		}
 		try {
+			mp.reset();
 			mp.setDataSource(getApplicationContext(), uri);
 			mp.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
 				public void onPrepared(MediaPlayer mp) {
